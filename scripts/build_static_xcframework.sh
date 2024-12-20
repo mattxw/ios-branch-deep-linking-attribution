@@ -15,6 +15,12 @@ xcodebuild archive \
     -scheme BranchSDK-static \
     -archivePath "${IOS_PATH}" \
     -sdk iphoneos \
+    ENABLE_BITCODE=YES \
+    BITCODE_GENERATION_MODE=bitcode \
+    OTHER_CFLAGS="-fembed-bitcode" \
+    DEPLOYMENT_POSTPROCESSING=YES \
+    GENERATE_MASTER_OBJECT_FILE=YES \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
     SKIP_INSTALL=NO
 
 # build iOS simulator framework
@@ -22,6 +28,12 @@ xcodebuild archive \
     -scheme BranchSDK-static \
     -archivePath "${IOS_SIM_PATH}" \
     -sdk iphonesimulator \
+    ENABLE_BITCODE=YES \
+    BITCODE_GENERATION_MODE=bitcode \
+    OTHER_CFLAGS="-fembed-bitcode" \
+    DEPLOYMENT_POSTPROCESSING=YES \
+    GENERATE_MASTER_OBJECT_FILE=YES \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
     SKIP_INSTALL=NO
     
 # build Catalyst framework

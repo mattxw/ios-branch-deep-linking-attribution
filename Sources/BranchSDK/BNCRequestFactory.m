@@ -401,7 +401,11 @@
 - (void)clearLocalURLFromStorage {
     self.preferenceHelper.localUrl = nil;
 #if !TARGET_OS_TV
-    UIPasteboard.generalPasteboard.URL = nil;
+	[[BranchLogger shared] logVerbose:@"Clearing pasteboard with items" error:nil];
+
+	if([UIPasteboard.generalPasteboard hasURLs]){
+		UIPasteboard.generalPasteboard.string = @"";
+	}
 #endif
 }
 
