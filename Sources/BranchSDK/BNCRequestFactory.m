@@ -404,7 +404,7 @@
 	[[BranchLogger shared] logVerbose:@"Clearing pasteboard with items" error:nil];
 
 	if([UIPasteboard.generalPasteboard hasURLs]){
-		UIPasteboard.generalPasteboard.string = @"";
+		UIPasteboard.generalPasteboard.items = @[];
 	}
 #endif
 }
